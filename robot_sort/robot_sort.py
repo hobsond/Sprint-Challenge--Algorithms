@@ -3,7 +3,7 @@ class SortingRobot:
         """
         SortingRobot takes a list and sorts it.
         """
-        self._list = l          # The list the robot is tasked with sorting
+        self._list = l       # The list the robot is tasked with sorting
         self._item = None       # The item the robot is holding
         self._position = 0      # The list position the robot is at
         self._light = "OFF"     # The state of the robot's light
@@ -13,15 +13,23 @@ class SortingRobot:
         """
         Returns True if the robot can move right or False if it's
         at the end of the list.
+        
         """
-        return self._position < len(self._list) - 1
+        if self._position + 1  <= len(self._list) -1  :
+            return True
+        else:
+            return False
+        
 
     def can_move_left(self):
         """
         Returns True if the robot can move left or False if it's
         at the start of the list.
         """
-        return self._position > 0
+        if self._position - 1  >= 0  :
+            return True
+        else:
+            return False
 
     def move_right(self):
         """
@@ -97,7 +105,20 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        x = self._list
+        # for i in range(len(x) -1):
+        #     for j in range(len(x)-1):
+        #         if x[j] > x[j+1]:
+        #             x[j],x[j+1] = x[j+1],x[j]
+        # return x
+        for i in range(len(x) -1):
+            nMin= i
+            for j in range( i+1,len(x) ):
+                if x[j]<x[nMin]:
+                    nMin =j
+        
+            x[i],x[nMin] = x[nMin],x[i]
+        return x
 
 
 if __name__ == "__main__":
@@ -108,5 +129,4 @@ if __name__ == "__main__":
 
     robot = SortingRobot(l)
 
-    robot.sort()
-    print(robot._list)
+    print(robot.sort())
