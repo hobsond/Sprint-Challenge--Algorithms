@@ -2,13 +2,13 @@
 
 ## Exercise I
 
-a)
+a)O(N)
 
 
-b)
+b)O(N^2): because it is a loop inside of a loop looking for an it em
 
 
-c)
+c)O(n)
 
 ## Exercise II
 <!--  
