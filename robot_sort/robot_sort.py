@@ -106,18 +106,18 @@ class SortingRobot:
         """
         # Fill this out
         x = self._list
-        # for i in range(len(x) -1):
-        #     for j in range(len(x)-1):
-        #         if x[j] > x[j+1]:
-        #             x[j],x[j+1] = x[j+1],x[j]
-        # return x
         for i in range(len(x) -1):
-            nMin= i
-            for j in range( i+1,len(x) ):
-                if x[j]<x[nMin]:
-                    nMin =j
+            for j in range(len(x)-1):
+                if x[j] > x[j+1]:
+                    x[j],x[j+1] = x[j+1],x[j]
+        # return x
+        # for i in range(len(x) -1):
+        #     nMin= i
+        #     for j in range( i+1,len(x) ):
+        #         if x[j]<x[nMin]:
+        #             nMin =j
         
-            x[i],x[nMin] = x[nMin],x[i]
+            # x[i],x[nMin] = x[nMin],x[i]
         return x
 
 

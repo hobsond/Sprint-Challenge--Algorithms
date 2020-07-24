@@ -13,22 +13,17 @@ Your function must utilize recursion. It cannot contain any loops.
 
     
 
-
-    
-def count_th(word,count):
-    try:
-        x = word.index('th')
-        if x:
-            
-            y = word[0: x:] + word[x + 2::]
-            count +=1
-            count_th(y,count)
-    except:
-        print(word,count)
-        
+def count_th(word):
+    length = len(word)
+    if length < 2:
+        return 0
+    if word[0:2] == 'th':
+        return count_th(word[2:]) + 1
+    else:
+        return count_th(word[1:])
   
      
     
 
 
-count_th('dksjthkdjkksthaafddthalfkddkjsthaddfath',0)
+print(count_th('dksjthkdjkksthaafddthalfkddkjsthaddfath'))
